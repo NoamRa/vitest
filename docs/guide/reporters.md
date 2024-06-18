@@ -21,7 +21,7 @@ import { defineConfig } from 'vite'
 
 export default defineConfig({
   test: {
-    reporters: ['verbose']
+    reporter: ['verbose']
   },
 })
 ```
@@ -31,7 +31,7 @@ Some reporters can be customized by passing additional options to them. Reporter
 ```ts
 export default defineConfig({
   test: {
-    reporters: [
+    reporter: [
       'default',
       ['junit', { suiteName: 'UI tests' }]
     ],
@@ -51,7 +51,7 @@ npx vitest --reporter=json --outputFile=./test-output.json
 ```ts [vitest.config.ts]
 export default defineConfig({
   test: {
-    reporters: ['json'],
+    reporter: ['json'],
     outputFile: './test-output.json'
   },
 })
@@ -69,7 +69,7 @@ npx vitest --reporter=json --reporter=default
 ```ts
 export default defineConfig({
   test: {
-    reporters: ['json', 'default'],
+    reporter: ['json', 'default'],
     outputFile: './test-output.json'
   },
 })
@@ -81,7 +81,7 @@ When using multiple reporters, it's also possible to designate multiple output f
 
 ```ts
 export default defineConfig({
-  reporters: ['junit', 'json', 'verbose'],
+  reporter: ['junit', 'json', 'verbose'],
   outputFile: {
     junit: './junit-report.xml',
     json: './json-report.json',
@@ -131,7 +131,7 @@ npx vitest --reporter=basic
 ```ts [vitest.config.ts]
 export default defineConfig({
   test: {
-    reporters: ['basic']
+    reporter: ['basic']
   },
 })
 ```
@@ -160,7 +160,7 @@ npx vitest --reporter=verbose
 ```ts [vitest.config.ts]
 export default defineConfig({
   test: {
-    reporters: ['verbose']
+    reporter: ['verbose']
   },
 })
 ```
@@ -196,7 +196,7 @@ npx vitest --reporter=dot
 ```ts [vitest.config.ts]
 export default defineConfig({
   test: {
-    reporters: ['dot']
+    reporter: ['dot']
   },
 })
 ```
@@ -225,7 +225,7 @@ npx vitest --reporter=junit
 ```ts [vitest.config.ts]
 export default defineConfig({
   test: {
-    reporters: ['junit']
+    reporter: ['junit']
   },
 })
 ```
@@ -253,7 +253,7 @@ The outputted XML contains nested `testsuites` and `testcase` tags. You can use 
 ```ts
 export default defineConfig({
   test: {
-    reporters: [
+    reporter: [
       ['junit', { suiteName: 'custom suite name', classname: 'custom-classname' }]
     ]
   },
@@ -272,7 +272,7 @@ npx vitest --reporter=json
 ```ts [vitest.config.ts]
 export default defineConfig({
   test: {
-    reporters: ['json']
+    reporter: ['json']
   },
 })
 ```
@@ -338,7 +338,7 @@ npx vitest --reporter=html
 ```ts [vitest.config.ts]
 export default defineConfig({
   test: {
-    reporters: ['html']
+    reporter: ['html']
   },
 })
 ```
@@ -360,7 +360,7 @@ npx vitest --reporter=tap
 ```ts [vitest.config.ts]
 export default defineConfig({
   test: {
-    reporters: ['tap']
+    reporter: ['tap']
   },
 })
 ```
@@ -400,7 +400,7 @@ npx vitest --reporter=tap-flat
 ```ts [vitest.config.ts]
 export default defineConfig({
   test: {
-    reporters: ['tap-flat']
+    reporter: ['tap-flat']
   },
 })
 ```
@@ -434,7 +434,7 @@ npx vitest --reporter=hanging-process
 ```ts [vitest.config.ts]
 export default defineConfig({
   test: {
-    reporters: ['hanging-process']
+    reporter: ['hanging-process']
   },
 })
 ```
@@ -450,7 +450,7 @@ If you configure non-default reporters, you need to explicitly add `github-actio
 ```ts
 export default defineConfig({
   test: {
-    reporters: process.env.GITHUB_ACTIONS ? ['dot', 'github-actions'] : ['dot'],
+    reporter: process.env.GITHUB_ACTIONS ? ['dot', 'github-actions'] : ['dot'],
   },
 })
 ```
@@ -490,7 +490,7 @@ npx vitest --reporter=some-published-vitest-reporter
 ```ts [vitest.config.ts]
 export default defineConfig({
   test: {
-    reporters: ['some-published-vitest-reporter']
+    reporter: ['some-published-vitest-reporter']
   },
 })
 ```
